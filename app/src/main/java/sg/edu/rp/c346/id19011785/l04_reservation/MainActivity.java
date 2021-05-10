@@ -89,6 +89,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Restrictions for reservation timing
+        timeP.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                // Add code here to limit the time to 8AM and 8PM
+                hourOfDay = timeP.getCurrentHour();
+                minute = timeP.getCurrentMinute();
+
+                if (hourOfDay < 8 && minute <= 59){
+                    timeP.setCurrentHour(8);
+                    timeP.setCurrentMinute(00);
+                    Toast.makeText(MainActivity.this, "Open at 8AM", Toast.LENGTH_LONG).show();
+                }
+
+                if (hourOfDay > 20 && minute > 00){
+                    timeP.setCurrentHour(19);
+                    timeP.setCurrentMinute(59);
+                    Toast.makeText(MainActivity.this, "Close at 8PM", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
 
     }
 }
