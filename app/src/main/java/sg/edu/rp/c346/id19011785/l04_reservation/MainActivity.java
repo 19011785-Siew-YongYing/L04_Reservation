@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         btnCfm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inptName = name.getText().toString();
-                String inptPhone = phone.getText().toString();
-                String inptSize = size.getText().toString();
+                String ipName = name.getText().toString();
+                String ipPhone = phone.getText().toString();
+                String ipSize = size.getText().toString();
                 int checkTable = grpTable.getCheckedRadioButtonId();
                 int day = dateP.getDayOfMonth();
                 int mth = dateP.getMonth();
@@ -48,26 +48,26 @@ public class MainActivity extends AppCompatActivity {
                 int hr = timeP.getCurrentHour();
                 int min = timeP.getCurrentMinute();
 
-                if (inptName.length() != 0 && inptPhone.length() != 0 && inptSize.length() != 0) {
+                if (ipName.length() != 0 && ipPhone.length() != 0 && ipSize.length() != 0) {
                     if (checkTable == R.id.radioBtnSmoking){
                         showInfo.setText(String.format("Name: %s\nDate & Time: %d/%d/%d, %02d:%02d\nTable at: Smoking Area",
-                                inptName, day, mth, yr, hr, min));
+                                ipName, day, mth, yr, hr, min));
                     }
 
                     if (checkTable == R.id.radioBtnNonSmoke){
                         showInfo.setText(String.format("Name: %s\nDate & Time: %d/%d/%d, %02d:%02d\nTable at: Non-Smoking Area",
-                                inptName, day, mth, yr, hr, min));
+                                ipName, day, mth, yr, hr, min));
                     }
                 }
 
                 else {
-                    if (inptName.length() == 0){
+                    if (ipName.length() == 0){
                         Toast.makeText(MainActivity.this, "Please enter Name", Toast.LENGTH_LONG).show();
                     }
-                    if (inptPhone.length() == 0){
+                    if (ipPhone.length() == 0){
                         Toast.makeText(MainActivity.this, "Please enter Phone Number", Toast.LENGTH_LONG).show();
                     }
-                    if (inptSize.length() == 0) {
+                    if (ipSize.length() == 0) {
                         Toast.makeText(MainActivity.this, "Please enter Size of Group", Toast.LENGTH_LONG).show();
                     }
                 }
